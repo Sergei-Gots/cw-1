@@ -16,20 +16,39 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        out.println("Course work # 1. Employees");
+        out.println("Курсовая работа # 1. \"Информация о сотрудниках компании\".\n");
 
         recruitEmployees();
         printInfo();
-        out.println("Cумма затрат на зарплаты в месяц составляет "
-                + Employee.formatSalary(calcMonthlyPayroll()));
-        out.print("Сотрудник с минимальной зарплатой:\n\t");
-        out.println(employees[findMinWageEmployeeIndex()]);
-        out.print("Сотрудник с максимальной зарплатой:\n\t");
-        out.println(employees[findMaxWageEmployeeIndex()]);
-        out.println("Средняя зарплата по компании составляет " + Employee.formatSalary(getAverageWage()));
-        out.println();
+        printMonthlyPayroll();
+        printMinWageEmployeeInfo();
+        printMaxWageEmployeeInfo();
+        printAverageSalary();
         printFIOList();
 
+    }
+
+    private static void printAverageSalary() {
+        out.println("Средняя зарплата по компании составляет " + Employee.formatSalary(getAverageWage()));
+        out.println();
+    }
+
+    private static void printMaxWageEmployeeInfo() {
+        out.print("Сотрудник с максимальной зарплатой:\n\t");
+        out.println(employees[findMaxWageEmployeeIndex()]);
+        out.println();
+    }
+
+    private static void printMinWageEmployeeInfo() {
+        out.print("Сотрудник с минимальной зарплатой:\n\t");
+        out.println(employees[findMinWageEmployeeIndex()]);
+        out.println();
+    }
+
+    private static void printMonthlyPayroll() {
+        out.println("Cумма затрат на зарплаты в месяц составляет "
+                + Employee.formatSalary(calcMonthlyPayroll()));
+        out.println();
     }
 
     private static void printFIOList() {
