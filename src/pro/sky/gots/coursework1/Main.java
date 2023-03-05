@@ -18,6 +18,10 @@ public class Main {
     public static void main(String[] args) {
         out.println("Курсовая работа # 1. \"Информация о сотрудниках компании\".\n");
 
+        basicTask();
+    }
+
+    private static void basicTask() {
         recruitEmployees();
         printInfo();
         printMonthlyPayroll();
@@ -25,7 +29,6 @@ public class Main {
         printMaxWageEmployeeInfo();
         printAverageSalary();
         printFullNamesList();
-
     }
 
     private static void printAverageSalary() {
