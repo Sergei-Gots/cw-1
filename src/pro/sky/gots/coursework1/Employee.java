@@ -10,7 +10,7 @@ public class Employee {
     private static int nextId;
     static private DecimalFormat salaryFormat = new DecimalFormat("###,###,##0.00");
     private  int id;
-    private String FIO;
+    private String fullName;
     private int departmentId;
     private double salary;
 
@@ -21,13 +21,13 @@ public class Employee {
     @Override
     public String toString() {
         return  id + ". "
-                + FIO + ": "
+                + fullName + ": "
                 + departmentId + "-й отдел, зарплата: "
                 +  formatSalary(salary);
     }
     public Employee(String FIO, int departmentId, double salary) {
         id = ++nextId;
-        this.FIO = FIO;
+        this.fullName = FIO;
         this.departmentId = departmentId;
         this.salary = salary;
     }
@@ -44,8 +44,8 @@ public class Employee {
         return id;
     }
 
-    public String getFIO() {
-        return FIO;
+    public String getFullName() {
+        return fullName;
     }
 
     public int getDepartmentId() {

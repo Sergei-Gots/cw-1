@@ -24,12 +24,12 @@ public class Main {
         printMinWageEmployeeInfo();
         printMaxWageEmployeeInfo();
         printAverageSalary();
-        printFIOList();
+        printFullNamesList();
 
     }
 
     private static void printAverageSalary() {
-        out.println("Средняя зарплата по компании составляет " + Employee.formatSalary(getAverageWage()));
+        out.println("Средняя зарплата по компании составляет " + Employee.formatSalary(calcAverageWage()));
         out.println();
     }
 
@@ -51,15 +51,15 @@ public class Main {
         out.println();
     }
 
-    private static void printFIOList() {
+    private static void printFullNamesList() {
         out.println("Список сотрудников:");
         for (int i = 0; i < employees.length; i++) {
-            out.println(employees[i].getId() + ". " + employees[i].getFIO());
+            out.println(employees[i].getId() + ". " + employees[i].getFullName());
         }
         out.println();
     }
 
-    private static double getAverageWage() {
+    private static double calcAverageWage() {
         return calcMonthlyPayroll() / employees.length;
 
     }
