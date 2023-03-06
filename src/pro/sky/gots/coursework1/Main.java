@@ -79,9 +79,12 @@ public class Main {
         printMinWageEmployee(departmentId);
         printMaxWageEmployee(departmentId);
         printAverageSalary(departmentId);
+        printMonthlyPayroll(departmentId);
         printEmployeesList(departmentId);
         indexSalary(departmentId, generateRandomSalaryIndexingPercentage());
         printEmployeesList(departmentId);
+        printAverageSalary(departmentId);
+        printMonthlyPayroll(departmentId);
         double averageSalary = calcAverageSalary();
         printEmployeesWithSalaryLessThan(averageSalary);
         printEmployeesWithSalaryGreaterOrEqualTo(averageSalary);
@@ -134,7 +137,7 @@ public class Main {
                 out.println(employees[i].toShortString());
             }
         }
-        if(!areFound) {
+        if (!areFound) {
             out.println("\tтаковых сотрудников не найдено.");
         }
         out.println();
@@ -148,7 +151,7 @@ public class Main {
                 out.println(employees[i].toShortString());
             }
         }
-        if(!areFound) {
+        if (!areFound) {
             out.println("\tтаковых сотрудников не найдено.");
         }
         out.println();
@@ -268,8 +271,14 @@ public class Main {
     }
 
     private static void printMonthlyPayroll() {
-        out.println("Cумма затрат на зарплаты в месяц составляет "
+        out.println("Cумма затрат на зарплаты в компании за месяц составляет "
                 + Employee.formatSalary(calcMonthlyPayroll()));
+        out.println();
+    }
+
+    private static void printMonthlyPayroll(int departmentId) {
+        out.println("Cумма затрат на зарплаты в " + departmentId + "-м отделе за месяц составляет "
+                + Employee.formatSalary(calcMonthlyPayroll(departmentId)));
         out.println();
     }
 
@@ -310,6 +319,17 @@ public class Main {
             ;
         }
         return index;
+    }
+
+    private static double calcMonthlyPayroll(int departmentId) {
+        checkDepartmentId(departmentId);
+        double sum = 0;
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getDepartmentId() == departmentId) {
+                sum += employees[i].getSalary();
+            }
+        }
+        return sum;
     }
 
     private static double calcMonthlyPayroll() {
