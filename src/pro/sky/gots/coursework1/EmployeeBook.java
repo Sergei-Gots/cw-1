@@ -1,7 +1,5 @@
 package pro.sky.gots.coursework1;
 
-import java.util.Random;
-
 import static java.lang.System.out;
 import static pro.sky.gots.coursework1.EmployeeBookUtils.DEPARTMENT_COUNT;
 import static pro.sky.gots.coursework1.EmployeeBookUtils.EMPLOYEES_COUNT;
