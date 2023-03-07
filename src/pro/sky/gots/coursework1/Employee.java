@@ -26,14 +26,14 @@ public class Employee {
 
     }
 
+    public static String formatSalary(double salary) {
+        return salaryFormat.format(salary) + " руб.";
+    }
+
     private void checkSalary(double salary) {
         if (salary <= 100_000) {
             throw new IllegalArgumentException("Труд будущего сотрудника " + fullName + " явно недооценен.");
         }
-    }
-
-    public static String formatSalary(double salary) {
-        return salaryFormat.format(salary) + " руб.";
     }
 
     @Override
